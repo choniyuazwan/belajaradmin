@@ -27,13 +27,9 @@
             <!-- form start -->
             <?php
               if(isset($_POST['masuk'])) {
-                $u = $this->input->post['usr'];
-                $p = $this->input->post['pwd'];
-                if($u == 'admin' && $p == 'admin') {
-                  header('location:'.base_url().'admin');
-                } else if($u == 'user' && $p == 'user') {
-                  header('location:'.base_url().'user');
-                }
+                $u = $this->input->post('usr');
+                $p = $this->input->post('pwd');
+                $this->db_model->getLoginData($u,$p);
               }
             ?>
             <form class="form-horizontal" method="post" action="">
